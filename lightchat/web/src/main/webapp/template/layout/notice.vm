@@ -1,0 +1,3 @@
+#parse("/template/layout/head.vm")
+$screen_content
+#parse("/template/layout/foot.vm")

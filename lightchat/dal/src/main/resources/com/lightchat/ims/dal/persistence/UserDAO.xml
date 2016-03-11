@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lightchat.ims.dal.persistence.UserDAO">
+
+	<insert id="insert" parameterType="UserDO">
+		insert into user(
+		userId,
+		UserName,
+		Password,
+		UserHead,
+		UserSign,
+		Gender,
+		Age,
+		ValidateType,
+		isDeleted,
+		Updated,
+		Created
+		) VALUES(
+		#{userId},
+		#{UserName},
+		#{Password},
+		#{UserHead},
+		#{UserSign},
+		#{Gender},
+		#{Age},
+		#{ValidateType},
+		0,
+		#{Updated},
+		#{Created})
+	</insert>
+
+	<update id="update" parameterType="UserDO">
+		update user
+		set
+		<if test="UserName !=null">
+	    	<![CDATA[UserName = #{UserName},]]>
+		</if>
+		<if test="Password !=null">
+	    	<![CDATA[Password = #{Password},]]>
+		</if>
+		<if test="UserHead !=null">
+	    	<![CDATA[UserHead = #{UserHead},]]>
+		</if>
+		<if test="UserSign !=null">
+	    	<![CDATA[UserSign = #{UserSign},]]>
+		</if>
+		<if test="Gender !=null">
+	    	<![CDATA[Gender = #{Gender},]]>
+		</if>
+		<if test="Age !=null">
+	    	<![CDATA[Age = #{Age},]]>
+		</if>
+		<if test="ValidateType !=null">
+	    	<![CDATA[ValidateType = #{ValidateType},]]>
+		</if>
+		<if test="isDeleted !=null">
+	    	<![CDATA[isDeleted = #{isDeleted},]]>
+		</if>
+		<if test="created!=null">
+	    	<![CDATA[created = #{created},]]>
+		</if>
+		<if test="updated!=null">
+	    	<![CDATA[updated = #{updated}]]>
+		</if>
+		where userId = #{userId}
+	</update>
+
+	<select id="selectForList" resultType="UserDO">
+		select * from user
+		where 0=0
+		<if test="UserId !=null">
+	    	<![CDATA[AND UserId = #{UserId}]]>
+		</if>
+		<if test="UserName !=null">
+	    	<![CDATA[AND UserName = #{UserName}]]>
+		</if>
+		<if test="Password !=null">
+	    	<![CDATA[AND Password = #{Password}]]>
+		</if>
+		<if test="UserHead !=null">
+	    	<![CDATA[AND UserHead = #{UserHead}]]>
+		</if>
+		<if test="UserSign !=null">
+	    	<![CDATA[AND UserSign = #{UserSign}]]>
+		</if>
+		<if test="Gender !=null">
+	    	<![CDATA[AND Gender = #{Gender}]]>
+		</if>
+		<if test="Age !=null">
+	    	<![CDATA[AND Age = #{Age}]]>
+		</if>
+		<if test="ValidateType !=null">
+	    	<![CDATA[AND ValidateType = #{ValidateType}]]>
+		</if>
+		<if test="isDeleted !=null">
+	    	<![CDATA[AND isDeleted = #{isDeleted}]]>
+		</if>
+		<if test="startDate != null">
+			<![CDATA[AND created>=#{startDate}]]>
+		</if>
+		<if test="endDate != null">
+			<![CDATA[AND created<=#{endDate}]]>
+		</if>
+		<if test="updated!=null">
+	    	<![CDATA[AND updated = #{updated}]]>
+		</if>
+		<!-- 分页 -->
+		<if test="pageIndex!=null and pageSize!=null">			
+			<![CDATA[
+				order by created desc LIMIT #{pageStartNum},#{pageSize}
+			]]>
+		</if>
+	</select>
+
+	<select id="selectForObject" resultType="UserDO">
+		select * from user
+		where 0=0
+		<if test="UserId !=null">
+	    	<![CDATA[AND UserId = #{UserId}]]>
+		</if>
+		<if test="UserName !=null">
+	    	<![CDATA[AND UserName = #{UserName}]]>
+		</if>
+		<if test="Password !=null">
+	    	<![CDATA[AND Password = #{Password}]]>
+		</if>
+		<if test="UserHead !=null">
+	    	<![CDATA[AND UserHead = #{UserHead}]]>
+		</if>
+		<if test="UserSign !=null">
+	    	<![CDATA[AND UserSign = #{UserSign}]]>
+		</if>
+		<if test="Gender !=null">
+	    	<![CDATA[AND Gender = #{Gender}]]>
+		</if>
+		<if test="Age !=null">
+	    	<![CDATA[AND Age = #{Age}]]>
+		</if>
+		<if test="ValidateType !=null">
+	    	<![CDATA[AND ValidateType = #{ValidateType}]]>
+		</if>
+		<if test="isDeleted !=null">
+	    	<![CDATA[AND isDeleted = #{isDeleted}]]>
+		</if>
+		<if test="startDate != null">
+			<![CDATA[AND created>=#{startDate}]]>
+		</if>
+		<if test="endDate != null">
+			<![CDATA[AND created<=#{endDate}]]>
+		</if>
+		<if test="updated!=null">
+	    	<![CDATA[AND updated = #{updated}]]>
+		</if>
+		limit 1
+	</select>
+
+	<select id="selectForObjectByPk" resultType="UserDO" parameterType="String">
+		select * from
+		user
+		where userId = #{value}
+	</select>
+	
+	<select id="selectForCount" resultType="Integer">
+		select count(1) from user
+		where 0=0
+		<if test="UserId !=null">
+	    	<![CDATA[AND UserId = #{UserId}]]>
+		</if>
+		<if test="UserName !=null">
+	    	<![CDATA[AND UserName = #{UserName}]]>
+		</if>
+		<if test="Password !=null">
+	    	<![CDATA[AND Password = #{Password}]]>
+		</if>
+		<if test="UserHead !=null">
+	    	<![CDATA[AND UserHead = #{UserHead}]]>
+		</if>
+		<if test="UserSign !=null">
+	    	<![CDATA[AND UserSign = #{UserSign}]]>
+		</if>
+		<if test="Gender !=null">
+	    	<![CDATA[AND Gender = #{Gender}]]>
+		</if>
+		<if test="Age !=null">
+	    	<![CDATA[AND Age = #{Age}]]>
+		</if>
+		<if test="ValidateType !=null">
+	    	<![CDATA[AND ValidateType = #{ValidateType}]]>
+		</if>
+		<if test="isDeleted !=null">
+	    	<![CDATA[AND isDeleted = #{isDeleted}]]>
+		</if>
+		<if test="startDate != null">
+			<![CDATA[AND created>=#{startDate}]]>
+		</if>
+		<if test="endDate != null">
+			<![CDATA[AND created<=#{endDate}]]>
+		</if>
+		<if test="updated!=null">
+	    	<![CDATA[AND updated = #{updated}]]>
+		</if>
+	</select>
+	<update id="delete" parameterType="String">
+		update user
+		set isDeleted = 1
+		where userId = #{value}
+	</update>
+
+</mapper>

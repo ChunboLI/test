@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.lightchat.ims</groupId>
+		<artifactId>lightchat-parent</artifactId>
+		<version>1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.lightchat.ims</groupId>
+	<artifactId>lightchat-core</artifactId>
+	<version>1.0</version>
+
+	<name>lightchat core</name>
+	<description>lightchat core project</description>
+	<url>http://lightchat.com</url>
+
+	<packaging>jar</packaging>
+	
+	<dependencies>
+		<dependency>
+		  	<groupId>com.lightchat.ims</groupId>
+		  	<artifactId>lightchat-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.stripes</groupId>
+			<artifactId>stripes</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.allinpay</groupId>
+			<artifactId>security</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.allinpay</groupId>
+			<artifactId>refundorder</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.52</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.spy</groupId>
+			<artifactId>spymemcached</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+		
+	</dependencies>	
+</project>

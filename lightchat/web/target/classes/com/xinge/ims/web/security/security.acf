@@ -1,0 +1,62 @@
+ CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON  
+ PATTERN_TYPE_APACHE_ANT  
+ /manage/*                    =ACCESS_BASE_USER
+ /manage/ims/role/view.*      =ACCESS_IMS_ROLE_VIEWLIST
+ /manage/ims/role/add.*       =ACCESS_IMS_ROLE_ADD
+ /manage/ims/role/edit.*      =ACCESS_IMS_ROLE_EDIT
+ /manage/ims/role/delete.*    =ACCESS_IMS_ROLE_DELETE
+ /manage/ims/user/view.*      =ACCESS_IMS_USER_VIEWLIST
+ /manage/ims/user/add.*       =ACCESS_IMS_USER_ADD
+ /manage/ims/user/edit.*      =ACCESS_IMS_USER_EDIT
+ /manage/ims/user/delete.*    =ACCESS_IMS_USER_DELETE
+ /manage/ims/user/resetpwd.*  =ACCESS_IMS_USER_RESETPWD
+ /manage/account/view.*       =ACCESS_ACCOUNT_VIEWLIST
+ /manage/account/edit.*       =ACCESS_ACCOUNT_EDIT
+ /manage/account/delete.*     =ACCESS_ACCOUNT_DELETE
+ /manage/account/add.*        =ACCESS_ACCOUNT_ADD
+ /manage/account/auditView.*  =ACCESS_ACCOUNT_AUDIT
+ /manage/financial/detail.*   =ACCESS_FINANCIAL_AUDIT 
+ /manage/financial/success.*  =ACCESS_FINANCIAL_SUCCESS
+ /manage/financial/view.*     =ACCESS_FINANCIAL_VIEWLIST
+ /manage/financial/audit.*    =ACCESS_FINANCIAL_AUDIT
+ /manage/financial/add.*      =ACCESS_FINANCIAL_ADD
+ /manage/financial/fail.*     =ACCESS_FINANCIAL_FAIL
+ /manage/order/refund/create  =ACCESS_FINANCIAL_FAIL
+ /manage/order/refundView.*     =ACCESS_FINANCIAL_FAIL
+ /manage/financial/repay.*    =ACCESS_FINANCIAL_REPAY
+ /manage/order/repay/create.* =ACCESS_FINANCIAL_REPAY
+ /manage/order/repayView.*    =ACCESS_FINANCIAL_REPAY
+ /manage/financial/issueLoanView.* =ACCESS_FINANCIAL_ISSUELOAN
+ /manage/financial/issueLoan.*     =ACCESS_FINANCIAL_ISSUELOAN
+ /manage/info/pe/view.*       =ACCESS_INFO_PE_VIEWLIST
+ /manage/info/pe/add.*        =ACCESS_INFO_PE_ADD
+ /manage/info/pe/delete.*     =ACCESS_INFO_PE_DELETE
+ /manage/info/pe/edit.*       =ACCESS_INFO_PE_EDIT
+ /manage/info/corp/view.*     =ACCESS_INFO_CORP_VIEWLIST
+ /manage/info/corp/add.*      =ACCESS_INFO_CORP_ADD
+ /manage/info/corp/delete.*   =ACCESS_INFO_CORP_DELETE
+ /manage/info/corp/edit.*     =ACCESS_INFO_CORP_EDIT
+ /manage/info/news/publish.*  =ACCESS_INFO_NEWS_PUBLISH
+ /manage/info/news/view.*	  =ACCESS_INFO_NEWS_VIEWLIST
+ /manage/info/news/edit.*	  =ACCESS_INFO_NEWS_EDIT
+ /manage/info/news/delete.*	  =ACCESS_INFO_NEWS_DELETE
+ /manage/credit/news/publish.*	    =ACCESS_CREDIT_NEWS_PUBLISH
+ /manage/credit/news/view.*	  		=ACCESS_CREDIT_NEWS_VIEWLIST
+ /manage/credit/news/edit.*	  		=ACCESS_CREDIT_NEWS_EDIT
+ /manage/credit/news/delete.*	  	=ACCESS_CREDIT_NEWS_DELETE
+ /manage/gateway/gatewayout/add.*	    	=ACCESS_GATEWAY_GATEWAYOUT_ADD
+ /manage/gateway/gatewayout/view.*   		=ACCESS_GATEWAY_GATEWAYOUT_VIEWLIST
+ /manage/gateway/gatewayout/edit.*	        =ACCESS_GATEWAY_GATEWAYOUT_EDIT
+ /manage/gateway/gatewayout/delete.*	    =ACCESS_GATEWAY_GATEWAYOUT_DELETE
+ /manage/gateway/gatewayBankRout/view.*   		=ACCESS_GATEWAY_GATEWAYBANKROUT_VIEWLIST
+ /manage/gateway/gatewayBankRout/edit.*	        =ACCESS_GATEWAY_GATEWAYBANKROUT_EDIT
+ /manage/gateway/gatewayBankRoutSwitch/view.*   =ACCESS_GATEWAY_GATEWAYBANKROUTSWITCH_VIEWLIST
+ /manage/gateway/gatewayResTime/view.*   =ACCESS_GATEWAY_GATEWAYRESTIME_VIEWLIST
+ /manage/gateway/gatewayQuota/view.*  	 =ACCESS_GATEWAY_GATEWAYQUOTA_VIEWLIST
+ 
+ /manage/recon/rechargeRecon/view.*  	 =ACCESS_RECON_RECHARGERECON_VIEWLIST
+ /manage/recon/rechargeRecon/deal.*  	 =ACCESS_RECON_RECHARGERECON_DEAL
+ /manage/recon/readReconInfo/view.*  	 =ACCESS_RECON_READRECONINFO_VIEWLIST
+
+ 
+ 

@@ -1,0 +1,133 @@
+#if($sec.anyGranted("ACCESS_IMS_USER_VIEWLIST","ACCESS_IMS_USER_ADD","ACCESS_IMS_ROLE_VIEWLIST","ACCESS_IMS_ROLE_ADD"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_IMS_USER_VIEWLIST"))
+    <li><a href="/manage/ims/user/view.htm">账户管理</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_IMS_USER_ADD"))
+    <li><a href="/manage/ims/user/add.htm">添加账户</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_IMS_ROLE_VIEWLIST"))
+    <li><a href="/manage/ims/role/view.htm">角色管理</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_IMS_ROLE_ADD"))
+    <li><a href="/manage/ims/role/add.htm">添加角色</a></li>
+	#end
+</ul>
+#end
+#if($sec.anyGranted("ACCESS_ACCOUNT_VIEWLIST","ACCESS_ACCOUNT_ADD","ACCESS_ACCOUNT_RESETPWD","ACCESS_ACCOUNT_AUDIT"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_ACCOUNT_VIEWLIST"))
+    <li><a href="/manage/account/view.htm">账户管理</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_ACCOUNT_ADD"))
+    <li><a href="/manage/account/add.htm">添加账户</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_ACCOUNT_RESETPWD"))
+    <li><a href="/manage/account/resetpwd.htm">重置密码</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_ACCOUNT_AUDIT"))
+    <li><a href="/manage/account/auditView.htm">账户认证审核</a></li>
+	#end
+</ul>
+#end
+#if($sec.anyGranted("ACCESS_FINANCIAL_VIEWLIST","ACCESS_FINANCIAL_AUDIT","ACCESS_FINANCIAL_ADD","ACCESS_FINANCIAL_ISSUELOAN","ACCESS_FINANCIAL_SUCCESS","ACCESS_FINANCIAL_FAIL","ACCESS_FINANCIAL_REPAY"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_FINANCIAL_VIEWLIST"))
+    <li><a href="/manage/financial/view.htm">项目管理</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_FINANCIAL_AUDIT"))
+    <li><a href="/manage/financial/audit.htm">项目审核</a></li>
+	#end
+ 	#if($sec.anyGranted("ACCESS_FINANCIAL_SUCCESS"))
+    <li><a href="/manage/financial/success.htm">融资成功</a></li>
+    #end
+	#if($sec.anyGranted("ACCESS_FINANCIAL_ADD"))
+    <li><a href="/manage/financial/add.htm">添加项目</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_FINANCIAL_ISSUELOAN"))
+    <li><a href="/manage/financial/issueLoan.htm">发放贷款</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_FINANCIAL_FAIL"))
+	<li><a href="/manage/financial/fail.htm">退款处理</a></li>
+	#end
+    #if($sec.anyGranted("ACCESS_FINANCIAL_REPAY"))
+    <li><a href="/manage/financial/repay.htm">还款处理</a></li>
+    #end
+</ul>
+#end
+#if($sec.anyGranted("ACCESS_INFO_CORP_VIEWLIST","ACCESS_INFO_CORP_ADD","ACCESS_INFO_PE_VIEWLIST","ACCESS_INFO_PE_ADD"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_INFO_CORP_VIEWLIST"))
+    <li><a href="/manage/info/corp/view.htm">企业信息管理</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_INFO_CORP_ADD"))
+    <li><a href="/manage/info/corp/add.htm">添加企业信息</a></li>
+	#end
+    #if($sec.anyGranted("ACCESS_INFO_PE_VIEWLIST"))
+    <li><a href="/manage/info/pe/view.htm">警用装备信息管理</a></li>
+    #end
+    #if($sec.anyGranted("ACCESS_INFO_PE_ADD"))
+    <li><a href="/manage/info/pe/add.htm">添加警用装备信息</a></li>
+    #end
+</ul>
+#end
+#if($sec.anyGranted("ACCESS_INFO_NEWS_PUBLISH","ACCESS_INFO_NEWS_VIEWLIST"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_INFO_NEWS_PUBLISH"))
+    <li><a href="/manage/info/news/publish.htm">警用装备新闻发布</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_INFO_NEWS_VIEWLIST"))
+    <li><a href="/manage/info/news/view.htm">警用装备新闻管理</a></li>
+	#end			
+</ul>
+#end
+
+#if($sec.anyGranted("ACCESS_CREDIT_NEWS_PUBLISH","ACCESS_CREDIT_NEWS_VIEWLIST","ACCESS_CREDIT_NEWS_EDIT","ACCESS_CREDIT_NEWS_DELETE"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_CREDIT_NEWS_PUBLISH"))
+    <li><a href="/manage/credit/news/publish.htm">信鸽新闻发布</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_CREDIT_NEWS_VIEWLIST","ACCESS_CREDIT_NEWS_EDIT","ACCESS_CREDIT_NEWS_DELETE"))   
+    <li><a href="/manage/credit/news/view.htm">信鸽新闻管理</a></li>
+	#end		
+</ul>
+#end
+
+
+#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYOUT_ADD","ACCESS_GATEWAY_GATEWAYOUT_VIEWLIST","ACCESS_GATEWAY_GATEWAYOUT_DELETE","ACCESS_GATEWAY_GATEWAYOUT_EDIT"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYOUT_ADD"))
+    <li><a href="/manage/gateway/gatewayRout/add.htm">路由网关新增</a></li>
+	#end
+	#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYOUT_VIEWLIST","ACCESS_GATEWAY_GATEWAYOUT_DELETE","ACCESS_GATEWAY_GATEWAYOUT_EDIT"))   
+    <li><a href="/manage/gateway/gatewayRout/view.htm">路由网关管理</a></li>
+	#end		
+</ul>
+#end
+
+#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYQUOTA_VIEWLIST","ACCESS_GATEWAY_GATEWAYRESTIME_VIEWLIST","ACCESS_GATEWAY_GATEWAYBANKROUTSWITCH_VIEWLIST","ACCESS_GATEWAY_GATEWAYBANKROUT_VIEWLIST","ACCESS_GATEWAY_GATEWAYBANKROUT_EDIT"))
+<ul class="nav nav-sidebar">
+	#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYQUOTA_VIEWLIST"))   
+    <li><a href="/manage/gateway/gatewayQuota/view.htm">银行路由网关指标</a></li>
+	#end	
+	#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYBANKROUTSWITCH_VIEWLIST"))   
+    <li><a href="/manage/gateway/gatewayBankRoutSwitch/view.htm">银行路由网关切换记录</a></li>
+	#end	
+	#if($sec.anyGranted("ACCESS_GATEWAY_GATEWAYBANKROUT_VIEWLIST","ACCESS_GATEWAY_GATEWAYBANKROUT_EDIT"))   
+    <li><a href="/manage/gateway/gatewayBankRout/view.htm">银行路由网关切换管理</a></li>
+	#end				
+</ul>
+#end
+
+
+#if($sec.anyGranted("ACCESS_RECON_RECHARGERECON_VIEWLIST","ACCESS_RECON_RECHARGERECON_DEAL"))
+<ul class="nav nav-sidebar">
+    #if($sec.anyGranted("ACCESS_RECON_READRECONINFO_VIEWLIST"))   
+     <li><a href="/manage/recon/readReconInfo/view.htm">网关手工对账</a></li>
+	#end	
+	#if($sec.anyGranted("ACCESS_RECON_RECHARGERECON_VIEWLIST","ACCESS_RECON_RECHARGERECON_DEAL"))   
+     <li><a href="/manage/recon/rechargeRecon/view.htm">网关对账管理</a></li>
+	#end	
+</ul>
+#end
+

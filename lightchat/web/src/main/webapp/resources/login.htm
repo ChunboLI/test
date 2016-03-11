@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>浙江信鸽金融服务股份有限公司 - 内部管理系统</title>
+    <style type="text/css">
+        body {
+            background-color: #dfeaf0;
+            margin: 0px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .banner {
+            background: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAZAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQICAgICAgICAgICAwMDAwMDAwMDAwEBAQEBAQECAQECAgIBAgIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/8AAEQgA9QAZAwERAAIRAQMRAf/EAGoAAQEBAQAAAAAAAAAAAAAAAAAEAwkBAQEBAQEBAAAAAAAAAAAAAAACAwQJARAAAQMEAgIDAAAAAAAAAAAAAAFhEvBxoROR4RGxIVGBEQEAAwEAAgMBAAAAAAAAAAAAARESYSFxUYGRIv/aAAwDAQACEQMRAD8A4BxU9M6h5H3BFRUFwRUVBcEVFQXDaKn2oZ3BFRUFwRUVBcEVFQXDeD4KrjLRB8CuGiD4FcNEHwK4aUQb2X5Y6IN7Hk0Qb2PJog3seTSiKlVHwx1BFRUfBqCKio+DUEVFR8GoVQb0V4YaIN6Hg0Qb0PBog3oeDSqFy2GiFwaIXBohcGlUUcumGpIo4o1JFHFGpIo4o1KuD4NKlz6IPgVJog+BUmiD4FSaWQV+C6c+oIK/Ao1BBX4FGoIK/Ao1CyDKXTm0QZRRogyijRBlFGlmuvgv8c2zXXwPw2a6+B+GzXXwPw2s1tns0qXPs1tnsVJs1tnsVJs1tnsVJtbBkNKc2iDIKNEGQUaIMgo0t1rSF1Dl2a1pBUGzWtIKg2a1pBUG1uu/KGlObZrvygo2a78oKNmu/KCjazW2ey6c2zW2exRs1tnsUbNbZ7FG1sLGlT1zaIWFT00QsKnpohYVPTS2D1yaVxzaIPXIrhog9ciuGiD1yK4aWQvX4XXpzaIXr8FejRC9fgr0aIXr8FejSzXfBpTm2a74FGzXfAo2a74FG1mtsl17c+zW2RXs2a2yK9mzW2RXs2s1tnsunPs1tnsUbNbZ7FGzW2exRtVBlyXTn10gy5FGukGXIo10gy5FGuqoo5dcYakijiuGpIo4rhqSKOK4alXB8F17YaIPgV7NEHwK9miD4FezSmDJguusNEGTArpogyYFdNEGTArppRGvBX0x0RrwPo0RrwPo0RrwPo03ihdSyuSKCpLkigqS5IoKkuVHhfpRUMrPC/SioLPC/SioLPC/SioLaFfyzB/ID+QH8j//2Q==");
+            background-repeat: repeat-x;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -122px;
+            height: 245px;
+            color: #eee;
+        }
+
+        .banner-cnt {
+            margin: 0px auto;
+            width: 1000px;
+        }
+
+        .left-holder {
+            text-align: right;
+            float: left;
+            margin-top: 80px;
+        }
+
+            .left-holder h1, .left-holder h2 {
+                display: inline;
+                font-weight: normal;
+            }
+
+        .right-holder {
+            background: url("/resources/img/login.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 437px;
+            height: 381px;
+            float: right;
+            margin-top: -70px;
+            padding-top: 115px;
+            padding-left: 148px;
+            position: relative;
+        }
+
+        .checkCode {
+            width: 74px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 3px;
+            line-height: 32px;
+            font-size: 18px;
+            margin-bottom: 24px;
+            width: 228px;
+            border: none;
+            outline: none;
+            background: none;
+            display: table-cell;
+        }
+
+            input[name=checkCode] {
+                width: 80px;
+            }
+
+            input[type=submit] {
+                position: absolute;
+                background: url("/resources/img/loginbutton.png");
+                width: 226px;
+                height: 49px;
+                left: 50%;
+                margin-left: -75px;
+                top: 330px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-cnt">
+            <div class="left-holder">
+                <h1>信鸽金服内部管理系统</h1><br />
+                <h2>HPBanking internal management system</h2>
+            </div>
+            <div class="right-holder">
+                #if(${SPRING_SECURITY_LAST_EXCEPTION})
+                <h3 style="color: red; position: absolute; top: 0px; left: 0px;">${SPRING_SECURITY_LAST_EXCEPTION.message}</h3>
+                #end
+                <form action="/login.do" method="post">
+                    <input type="hidden" name="_csrf" value="$_csrf.token">
+                    <input type="text" name="username" autocomplete="off">
+                    <input type="password" name="password" autocomplete="off">
+                    <input type="text" maxlength="4" name="checkCode" autocomplete="off">
+                    <img class="checkCode" src="/checkCode.jpg?_r=$math.getRandom()" onclick="this.src='/checkCode.jpg?_r=' + Math.random()" />
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

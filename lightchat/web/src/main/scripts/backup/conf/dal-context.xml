@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd	
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+	default-autowire="byName">
+    <!-- IMS系统DataSource配置开始 -->
+	<bean id="xingeimsDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://rdspimhdrzddafoo8wydw.mysql.rds.aliyuncs.com/xingeims?characterEncoding=utf8" />
+		<property name="username" value="xingeims" />
+		<property name="password" value="xinge369" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="xingeimsDataSource" />
+		<property name="typeAliasesPackage" value="com.xinge.ims.dal.domain" />
+
+	</bean>
+
+	<!-- transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="xingeimsDataSource" />
+	</bean>
+
+	<!-- enable transaction demarcation with annotations -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xinge.ims.dal.persistence" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	 <!-- IMS系统DataSource配置结束 -->
+
+ 	<!-- 平台DataSource配置开始 -->
+	<bean id="creditDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://rdspimhdrzddafoo8wydw.mysql.rds.aliyuncs.com/credit?characterEncoding=utf8" />
+		<property name="username" value="xinge" />
+		<property name="password" value="xg456123" />
+	</bean>
+
+
+	<bean id="creditSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="creditDataSource" />
+		<property name="typeAliasesPackage" value="com.xinge.ims.dal.credit.domain" />
+	</bean>
+
+
+	<!-- transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="creditTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="creditDataSource" />
+	</bean>
+
+	<!-- enable transaction demarcation with annotations -->
+	<tx:annotation-driven transaction-manager="creditTransactionManager" />
+
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xinge.ims.dal.credit.persistence" />
+		<property name="sqlSessionFactory" ref="creditSqlSessionFactory"/>
+	</bean>
+	<!-- 平台DataSource配置结束 -->
+	<!-- 企业信息DataSource配置开始 -->
+	<bean id="infoDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://rdspimhdrzddafoo8wydw.mysql.rds.aliyuncs.com/information?characterEncoding=utf8" />
+		<property name="username" value="information" />
+		<property name="password" value="xinge963" />
+	</bean>
+
+
+	<bean id="infoSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="infoDataSource" />
+		<property name="typeAliasesPackage" value="com.xinge.ims.dal.information.domain" />
+	</bean>
+
+
+	<!-- transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="infoTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="infoDataSource" />
+	</bean>
+
+	<!-- enable transaction demarcation with annotations -->
+	<tx:annotation-driven transaction-manager="infoTransactionManager" />
+
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xinge.ims.dal.information.persistence" />
+		<property name="sqlSessionFactory" ref="infoSqlSessionFactory"/>
+	</bean>
+	<!-- 平台DataSource配置结束 -->
+	
+	<!-- IMS系统DataSource gateway配置开始 -->
+	<bean id="gatewayDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://rdspimhdrzddafoo8wydw.mysql.rds.aliyuncs.com/gateway?characterEncoding=utf8" />
+		<property name="username" value="gateway" />
+		<property name="password" value="xg456123" />
+	</bean>
+
+	<bean id="gatewaySessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="gatewayDataSource" />
+		<property name="typeAliasesPackage" value="com.xinge.ims.dal.gateway.domain" />
+
+	</bean>
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xinge.ims.dal.gateway.persistence" />
+		<property name="sqlSessionFactory" ref="gatewaySessionFactory"/>
+	</bean>
+
+	<!-- transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="gatewaytransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="gatewayDataSource" />
+	</bean>
+
+	<!-- enable transaction demarcation with annotations -->
+	<tx:annotation-driven transaction-manager="gatewaytransactionManager" />
+    <!-- IMS系统DataSource gateway配置结束 -->
+    
+    <!-- IMS系统DataSource recon配置开始 -->
+	<bean id="reconDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://rdspimhdrzddafoo8wydw.mysql.rds.aliyuncs.com/recon?characterEncoding=utf8" />
+		<property name="username" value="recon" />
+		<property name="password" value="recon123" />
+	</bean>
+
+	<bean id="reconSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="reconDataSource" />
+		<property name="typeAliasesPackage" value="com.xinge.ims.dal.recon.domain" />
+	</bean>
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xinge.ims.dal.recon.persistence" />
+		<property name="sqlSessionFactory" ref="reconSessionFactory"/>
+	</bean>
+
+	<!-- transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="recontransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="reconDataSource" />
+	</bean>
+
+	<!-- enable transaction demarcation with annotations -->
+	<tx:annotation-driven transaction-manager="recontransactionManager" />
+
+    <!-- IMS系统DataSource gateway配置结束 -->
+</beans>    

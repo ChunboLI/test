@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.lightchat.ims</groupId>
+		<artifactId>lightchat-parent</artifactId>
+		<version>1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.lightchat.ims</groupId>
+	<artifactId>lightchat-dal</artifactId>
+	<version>1.0</version>
+
+	<name>lightchat dal</name>
+	<description>lightchat dal project</description>
+	<url>http://lightchat.com</url>
+
+	<packaging>jar</packaging>
+	
+	<dependencies>
+		<dependency>
+		  	<groupId>com.lightchat.ims</groupId>
+		  	<artifactId>lightchat-common</artifactId>
+		</dependency>
+
+		<dependency>
+		  	<groupId>org.mybatis</groupId>
+		 	<artifactId>mybatis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+			
+		<dependency>
+        	<groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+	</dependencies>	
+</project>

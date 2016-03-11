@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd"
+	default-autowire="byName">
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="byteArrayConverters" />
+				<ref bean="sourceConverters" />
+				<ref bean="xmlConverters" />
+				<ref bean="jsonConverters" />
+			</list>
+		</property>
+	</bean>
+	<bean id="byteArrayConverters"
+		class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+	<bean id="sourceConverters"
+		class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+	<bean id="xmlConverters"
+		class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" />
+	<bean id="jsonConverters"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+		
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/upload/**" location="/upload/" />
+	<mvc:resources mapping="/ueditor/**" location="/ueditor/" />
+
+	<!-- mvc view for velocity -->
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/" />
+		<!-- doesn't work, why? -->
+		<property name="configLocation" value="/WEB-INF/velocity.properties" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop><!-- 指定模板引擎进行模板处理的编码 -->
+				<prop key="output.encoding">UTF-8</prop><!-- 指定输出流的编码 -->
+				<prop key="contentType">text/html;charset=UTF-8</prop><!-- contentType -->
+				<prop key="velocimacro.library">/template/screen/macros.vm</prop><!-- Velocimacro 模板库的列表 -->
+			</props>
+		</property>
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+		<property name="prefix" value="/template/screen/" />
+		<property name="suffix" value=".vm" />
+		<property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml" />
+		<!-- must set here, velocity.properties doesn't work -->
+		<property name="layoutUrl" value="/template/layout/default.vm" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+	</bean>
+    
+	<bean name="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="512000000" />
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<!-- Imports user-defined @Controller beans that process client requests -->
+	<import resource="beans-controllers.xml" />	
+	<import resource="dal-context.xml" />
+	<import resource="beans-core.xml" />
+</beans>
+

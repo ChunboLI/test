@@ -1,0 +1,13 @@
+<div >
+	<h1 >
+		啦啦啦啦啦
+    </h1>
+	#foreach($user in $userList)
+	<div >
+		<input type="text" value="$user.UserId"/>
+		<input type="text" value="$user.UserName"/>
+		<input type="text" value="$user.Password"/>
+		<input type="text" value="$!user.UserHead"/>
+    </div>
+	#end
+</div>
